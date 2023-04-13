@@ -1,13 +1,14 @@
 [tool.poetry]
 name = "dividindo-as-dividas"
 version = "0.1.0"
-description = ""
+description = "Uma maneira mais igualitária de fazer a divisão de suas contas"
 authors = ["JanioAbrantes <janioabrantes@gmail.com>"]
 readme = "README.md"
 packages = [{include = "dividindo_as_dividas"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+django = "^4.2"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -16,6 +17,7 @@ pytest-cov = "^4.0.0"
 blue = "^0.9.1"
 isort = "^5.12.0"
 taskipy = "^1.10.4"
+python-decouple = "^3.8"
 
 
 [tool.poetry.group.doc.dependencies]
@@ -26,3 +28,17 @@ mkdocs-material = "^9.1.5"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = "--doctest-modules"
+
+[tool.isort]
+profile = "black"
+line_lenght = 79
+
+[tool.taskipy.tasks]
+lint = "blue --check --diff . && isort --check --diff ."
+docs = "mkdocs serve"
+test = "pytest -s -x --cov=NOME -vv"
+server = "python manage.py runserver"
