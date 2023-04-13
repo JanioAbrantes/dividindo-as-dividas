@@ -1,1 +1,10 @@
-site_name: My Docs
+site_name: Dividindo as Dívidas
+repo_url: https://github.com/JanioAbrantes/dividindo-as-dividas
+repo_name: JanioAbrantes/dividindo-as-dividas
+edit_uri: tree/main/docs
+
+theme:
+  name: material
+  language: pt-BR
+  logo: assets/logo.png
+  favicon: assets/fav.png
