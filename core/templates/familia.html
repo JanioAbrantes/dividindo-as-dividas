@@ -1,0 +1,11 @@
+{% if nome_familia == '' %}
+    <form class="nome-familia-input" action="{{ url_for('criar_familia') }}" method="post">
+        <label class="pdr12">Família:</label>
+        <input class="col-4" type="text" placeholder="Nome" name="nome_da_familia" autofocus="autofocus">
+    </form>
+{% else %}
+    <div class="nome-familia">
+        <h6 class="pdr12" >Família:</h6>
+        <h6>{{ nome_familia }}</h6>
+    </div>
+{% endif %}

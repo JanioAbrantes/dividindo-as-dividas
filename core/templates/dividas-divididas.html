@@ -1,0 +1,7 @@
+<label class="nome-campos">Dívidas Divididas:</label>
+<hr>
+{% for n in dividas_divididas() %}
+    <h6>{{ n }}</h6>
+    <hr>
+{% endfor %}
+<h6 class="total">{{ monetizar(total_contas) }}</h6>

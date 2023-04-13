@@ -1,0 +1,19 @@
+<form action="{{ url_for('contas_a_pagar') }}" method="post">
+    <label class="pdr12 nome-campos">Contas:</label>
+    {% if nome_familia != '' and not calculo_individual %}
+        {% if request.endpoint == 'contas_a_pagar' %}
+            <input class="col-6" type="text" placeholder="Conta" name="nome_conta" autofocus>
+        {% else %}
+            <input class="col-6" type="text" placeholder="Conta" name="nome_conta">
+        {% endif %}
+    {% endif %}
+    <hr>
+    {% for n in range(contas_adicionadas|length) %}
+        <h6>{{ contas_adicionadas[n] }}</h6>
+        <hr>
+        {% if n == (contas_adicionadas|length)-1 %}
+            <br>
+        {% endif %}
+    {% endfor %}
+    <h6 class="total">Total:</h6>
+</form>

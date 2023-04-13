@@ -1,0 +1,19 @@
+<form action="{{ url_for('membros_nome') }}" method="post">
+    <label class="nome-campos">Membros:</label>
+    {% if nome_familia != '' and not calculo_individual %}
+        {% if request.endpoint == 'membros_nome' %}
+            <input class="col-6" type="text" placeholder="Nome" name="nome_do_membro" autofocus>
+        {% else %}
+            <input class="col-6" type="text" placeholder="Nome" name="nome_do_membro">
+        {% endif %}
+    {% endif %}
+    <hr>
+    {% for n in range(membros_adicionados|length) %}
+        <h6>{{ membros_adicionados[n] }}</h6>
+        <hr>
+        {% if n == (membros_adicionados|length)-1 %}
+            <br>
+        {% endif %}
+    {% endfor %}
+    <h6 class="total">Total:</h6>
+</form>
